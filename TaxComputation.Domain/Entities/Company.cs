@@ -15,7 +15,7 @@ namespace TaxComputation.Domain.Entities
         public string CompanyName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please Enter City Name.")]
-        [Display(Name = "City")]
+        [Display(Name = "Company City")]
         public string CompanyCity { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please Enter GST Number.")]
