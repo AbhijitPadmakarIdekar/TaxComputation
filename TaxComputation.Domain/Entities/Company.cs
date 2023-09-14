@@ -23,7 +23,7 @@ namespace TaxComputation.Domain.Entities
         public int GstNumber { get; set; }
 
         [Required(ErrorMessage = "Please Enter Contact Number.")]
-        [Display(Name = "Conatct Number")]
+        [Display(Name = "Contact Number")]
         public int ContactNumber { get; set; }
         public List<Product>? Products { get; set; }
     }
