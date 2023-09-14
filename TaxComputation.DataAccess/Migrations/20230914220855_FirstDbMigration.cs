@@ -16,8 +16,8 @@ namespace TaxComputation.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CompanyCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GstNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    GstNumber = table.Column<int>(type: "int", nullable: false),
+                    ContactNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

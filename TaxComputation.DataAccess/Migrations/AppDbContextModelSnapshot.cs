@@ -37,13 +37,11 @@ namespace TaxComputation.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ContactNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ContactNumber")
+                        .HasColumnType("int");
 
-                    b.Property<string>("GstNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("GstNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("CompanyId");
 

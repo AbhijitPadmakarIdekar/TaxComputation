@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TaxComputation.Domain.Entities;
+using TaxComputation.Domain.Interfaces;
 using TaxComputation.Ui.Models;
 
 namespace TaxComputation.Ui.Controllers
@@ -7,9 +9,11 @@ namespace TaxComputation.Ui.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork, ILogger<HomeController> logger)
         {
+            _unitOfWork = unitOfWork;
             _logger = logger;
         }
 
@@ -22,6 +26,22 @@ namespace TaxComputation.Ui.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Company? company)
+        {
+            if (company != null)
+            {
+                await _unitOfWork.Company!.CreateAsync(company!);
+                await _unitOfWork.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound("An Error Occurred!");
+            }
+
             return View();
         }
 
