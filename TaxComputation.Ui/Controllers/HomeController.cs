@@ -20,7 +20,10 @@ namespace TaxComputation.Ui.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var company = new Company(); // Create a new Company instance
+            company.Products = new List<Product>(); // Initialize the Products collection
+
+            return View(company);
         }
 
         [HttpGet]
